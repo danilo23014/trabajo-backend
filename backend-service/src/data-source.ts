@@ -1,14 +1,12 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { Product } from "./entities/videojuegosmóviles";
-
-
+import { Computer } from "./entities/computadores"; 
 export const AppDataSource = new DataSource({
   type: "sqlite",
-  database: "database.sqlite",
-  synchronize: true,
-  logging: false,
-  entities: [Product],
-  migrations:[],
-  subscribers:[]
+  database: "database.sqlite", 
+  synchronize: true, 
+  logging: false, 
+  entities: [Computer], 
+  migrations: [],
+  subscribers: []
 });

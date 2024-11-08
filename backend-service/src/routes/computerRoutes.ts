@@ -1,60 +1,61 @@
+import { Computer } from "../entities/computadores";
 import { Router } from "express";
 import {
-  getAllProducts,
-  getProductById,
-  createProduct,
-  updateProduct,
-  deleteProduct,
-} from "../controllers/productController";
+  getAllComputers,
+  getComputerById,
+  createComputer,
+  updateComputer,
+  deleteComputer,
+} from "../controllers/computerController"; // Importamos los métodos correspondientes a computadoras
 
-const productRoutes = Router();
+const computerRoutes = Router();
 
 /**
  * @swagger
  * tags:
- *   name: Products
- *   description: CRUD relacionado con productos
+ *   name: Computers
+ *   description: CRUD relacionado con computadores
  */
 
 /**
  * @swagger
- * /api/products:
+ * /api/computers:
  *   get:
- *     summary: Obtener todos los productos
- *     tags: [Products]
+ *     summary: Obtener todos los computadores
+ *     tags: [Computers]
  *     responses:
  *       200:
- *         description: Lista de productos
+ *         description: Lista de computadores
  */
-productRoutes.get("/", getAllProducts);
+computerRoutes.get("/", getAllComputers);
 
 /**
  * @swagger
- * /api/products/{id}:
+ * /api/computers/{id}:
  *   get:
- *     summary: Obtener un producto por ID
- *     tags: [Products]
+ *     summary: Obtener un computador por ID
+ *     tags: [Computers]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID del producto
+ *         description: ID del computador
  *     responses:
  *       200:
- *         description: Detalles del producto
+ *         description: Detalles del computador
  *       404:
- *         description: Producto no encontrado
+ *         description: Computador no encontrado
  */
-productRoutes.get("/:id", getProductById);
+computerRoutes.get("/:id", getComputerById);
 
 /**
  * @swagger
- * /api/products:
+ * /api/computers:
  *   post:
- *     summary: Crear un nuevo producto
- *     tags: [Products]
+ *     summary: Crear un nuevo computador
+ *     tags: [Computers]
  *     requestBody:
  *       required: true
  *       content:
@@ -74,25 +75,25 @@ productRoutes.get("/:id", getProductById);
  *                 type: number
  *     responses:
  *       201:
- *         description: Producto creado
+ *         description: Computador creado
  *       500:
  *         description: Error en el servidor
  */
-productRoutes.post("/", createProduct);
+computerRoutes.post("/", createComputer);
 
 /**
  * @swagger
- * /api/products/{id}:
+ * /api/computers/{id}:
  *   put:
- *     summary: Actualizar un producto existente
- *     tags: [Products]
+ *     summary: Actualizar un computador existente
+ *     tags: [Computers]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID del producto
+ *         description: ID del computador
  *     requestBody:
  *       required: false
  *       content:
@@ -108,35 +109,37 @@ productRoutes.post("/", createProduct);
  *                 type: number
  *     responses:
  *       200:
- *         description: Producto actualizado
+ *         description: Computador actualizado
  *       404:
- *         description: Producto no encontrado
+ *         description: Computador no encontrado
  *       500:
  *         description: Error en el servidor
  */
-productRoutes.put("/:id", updateProduct);
+computerRoutes.put("/:id", updateComputer);
 
 /**
  * @swagger
- * /api/products/{id}:
+ * /api/computers/{id}:
  *   delete:
- *     summary: Eliminar un producto
- *     tags: [Products]
+ *     summary: Eliminar un computador
+ *     tags: [Computers]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID del producto
+ *         description: ID del computador
  *     responses:
  *       200:
- *         description: Producto eliminado
+ *         description: Computador eliminado
  *       404:
- *         description: Producto no encontrado
+ *         description: Computador no encontrado
  *       500:
  *         description: Error en el servidor
  */
-productRoutes.delete("/:id", deleteProduct);
+computerRoutes.delete("/:id", deleteComputer);
 
-export default productRoutes;
+export default computerRoutes;
+
+

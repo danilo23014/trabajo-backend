@@ -1,7 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Computer } from "../entities/computadores";  
 
 @Entity()
-export class Product {
+export class Computer {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -14,3 +15,4 @@ export class Product {
   @Column("decimal")
   price!: number;
 }
+
